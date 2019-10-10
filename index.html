@@ -1,0 +1,650 @@
+<!Doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tic Tac Toe</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<style>
+    body{
+        background-color:blue;
+    }
+    .form1{
+        background-color:cornflowerblue;
+        width:400px;
+        height:600px;
+        border-radius: 10px;
+        text-align:center;
+        margin: 0 auto;
+        margin-top: 75px;
+        
+        
+        
+        
+        
+        
+    }
+    #title{
+        color:white;
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 40px;
+        word-spacing: 15px;
+        padding-top: 20px;
+    }
+    .title1{
+        background-color:black;
+        color:chartreuse;
+        font-size:20px;
+        width:380px;
+        margin:auto;
+       
+        
+        
+        
+    }
+    
+    #turn{
+        background-color:lawngreen;
+        width:160px;
+        height:35px;
+        font-family: 'Courier New', Courier, monospace;
+        color:rgb(2, 2, 24);
+        font-size:15px;
+        border:2px solid black;
+    }
+    #reset{
+        background-color:lawngreen;
+        width:160px;
+        height:35px;
+        font-family: 'Courier New', Courier, monospace;
+        color:rgb(2, 2, 24);
+        font-size:15px;
+        border:2px solid black;
+    }
+    .table{
+                border:2px solid black;
+                width:240px;
+                height:240px;
+                text-align:center;
+                margin:auto;
+                border-collapse: collapse;
+                
+            }
+            input[type="button"] 
+            { 
+                background-color:aqua; 
+                color: black; 
+                border: solid black 2px; 
+                width:80px;
+                height:81px;
+                border-collapse: collapse;
+                font-size:20px;
+                font-weight: bolder;
+                cursor:pointer;
+                
+            }
+            td{
+                width:80px;
+                height:80px;
+            }
+            #pla1{
+                background-color:cornflowerblue;
+                border:cornflowerblue;
+               
+                font-weight:bolder;
+                
+            }
+</style>
+
+</head>
+<body>
+    <div class="form1">
+        
+        <p id="title"><b>tic tac toe</b></p>
+        <pre class="title1"><b>Player 1: X    AND    Player 2: O</b></pre>
+        <br>
+        <input type="button" id="turn" Value="Player 1 turn !">
+        <br>
+        
+        <br>
+        <br>
+
+        <div class="tab">
+        <table class="table">
+            <tr>
+                <td><input type="button" id="c1" onclick="display1()"></td>
+                <td><input type="button" id="c2" onclick="display2()"></td>
+                <td><input type="button" id="c3" onclick="display3()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="c4" onclick="display4()"></td>
+                <td><input type="button" id="c5" onclick="display5()"></td>
+                <td><input type="button" id="c6" onclick="display6()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="c7" onclick="display7()"></td>
+                <td><input type="button" id="c8" onclick="display8()"></td>
+                <td><input type="button" id="c9" onclick="display9()"></td>
+            </tr>
+
+        </table>
+        </div>
+        <br>
+        <br>
+        <input type="button" id="reset" onclick="display10()" value="New Game" >
+    </div>
+    <script>
+        var a=0;
+        var flag=0;
+        function display1()
+        {
+            if(a%2==0 && document.getElementById("c1").value=='' )
+            {
+                document.getElementById("c1").value="X";
+                document.getElementById("turn").value="Player 2 turn !";
+                a++;
+                if((document.getElementById("c2").value=="X" && document.getElementById("c3").value=="X") || (document.getElementById("c4").value=="X" && document.getElementById("c7").value=="X") || (document.getElementById("c5").value=="X" && document.getElementById("c9").value=="X"))
+                {
+                    
+                    alert("Congratulations Player 1 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a%2==1 && document.getElementById("c1").value=='' )
+            {
+                document.getElementById("c1").value="O";
+                document.getElementById("turn").value="Player 1 turn !";
+                a++;
+                if((document.getElementById("c2").value=="O" && document.getElementById("c3").value=="O") || (document.getElementById("c4").value=="O" && document.getElementById("c7").value=="O") || (document.getElementById("c5").value=="O" && document.getElementById("c9").value=="O"))
+                {
+                    
+                    alert("Congratulations Player 2 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+                    
+                }
+            }
+            if(a==9 && flag==0)
+            {
+                alert("Match Draw !\nPlay New Game")
+            }
+            
+        }
+        function display2()
+        {
+            if(a%2==0 && document.getElementById("c2").value=='' )
+            {
+                document.getElementById("c2").value="X";
+                document.getElementById("turn").value="Player 2 turn !";
+                a++;
+                if((document.getElementById("c1").value=="X" && document.getElementById("c3").value=="X") || (document.getElementById("c5").value=="X" && document.getElementById("c8").value=="X"))
+                {
+                    
+                    alert("Congratulations Player 1 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a%2==1 && document.getElementById("c2").value=='' )
+            {
+                document.getElementById("c2").value="O";
+                document.getElementById("turn").value="Player 1 turn !";
+                a++;
+                if((document.getElementById("c1").value=="O" && document.getElementById("c3").value=="O") || (document.getElementById("c5").value=="O" && document.getElementById("c8").value=="O"))
+                {
+                    
+                    alert("Congratulations Player 2 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a==9 && flag==0)
+            {
+                alert("Match Draw !\nPlay New Game")
+            }
+            
+        }
+        function display3()
+        {
+            if(a%2==0 && document.getElementById("c3").value=='' )
+            {
+                document.getElementById("c3").value="X";
+                document.getElementById("turn").value="Player 2 turn !";
+                a++;
+                if((document.getElementById("c2").value=="X" && document.getElementById("c1").value=="X") || (document.getElementById("c6").value=="X" && document.getElementById("c9").value=="X") || (document.getElementById("c5").value=="X" && document.getElementById("c7").value=="X"))
+                {
+                    
+                    alert("Congratulations Player 1 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a%2==1 && document.getElementById("c3").value=='' )
+            {
+                document.getElementById("c3").value="O";
+                document.getElementById("turn").value="Player 1 turn !";
+                a++;
+                if((document.getElementById("c2").value=="O" && document.getElementById("c1").value=="O") || (document.getElementById("c6").value=="O" && document.getElementById("c9").value=="O") || (document.getElementById("c5").value=="O" && document.getElementById("c7").value=="O"))
+                {
+                    
+                    alert("Congratulations Player 2 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a==9 && flag==0)
+            {
+                alert("Match Draw !\nPlay New Game")
+            }
+            
+        }
+        function display4()
+        {
+            if(a%2==0 && document.getElementById("c4").value=='' )
+            {
+                document.getElementById("c4").value="X";
+                document.getElementById("turn").value="Player 2 turn !";
+                a++;
+                if((document.getElementById("c1").value=="X" && document.getElementById("c7").value=="X") || (document.getElementById("c5").value=="X" && document.getElementById("c6").value=="X"))
+                {
+                    
+                    alert("Congratulations Player 1 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a%2==1 && document.getElementById("c4").value=='' )
+            {
+                document.getElementById("c4").value="O";
+                document.getElementById("turn").value="Player 1 turn !";
+                a++;
+                if((document.getElementById("c1").value=="O" && document.getElementById("c7").value=="O") || (document.getElementById("c5").value=="O" && document.getElementById("c6").value=="O"))
+                {
+                    
+                    alert("Congratulations Player 2 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a==9 && flag==0)
+            {
+                alert("Match Draw !\nPlay New Game")
+            }
+            
+        }
+        function display5()
+        {
+            if(a%2==0 && document.getElementById("c5").value=='' )
+            {
+                document.getElementById("c5").value="X";
+                document.getElementById("turn").value="Player 2 turn !";
+                a++;
+                if((document.getElementById("c2").value=="X" && document.getElementById("c8").value=="X") || (document.getElementById("c4").value=="X" && document.getElementById("c6").value=="X") || (document.getElementById("c1").value=="X" && document.getElementById("c9").value=="X") || (document.getElementById("c7").value=="X" && document.getElementById("c3").value=="X"))
+                {
+                    
+                    alert("Congratulations Player 1 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a%2==1 && document.getElementById("c5").value=='' )
+            {
+                document.getElementById("c5").value="O";
+                document.getElementById("turn").value="Player 1 turn !";
+                a++;
+                if((document.getElementById("c2").value=="O" && document.getElementById("c8").value=="O") || (document.getElementById("c4").value=="O" && document.getElementById("c6").value=="O") || (document.getElementById("c1").value=="O" && document.getElementById("c9").value=="O") || (document.getElementById("c7").value=="O" && document.getElementById("c3").value=="O"))
+                {
+                    
+                    alert("Congratulations Player 2 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a==9 && flag==0)
+            {
+                alert("Match Draw !\nPlay New Game")
+            }
+            
+        }
+        function display6()
+        {
+            if(a%2==0 && document.getElementById("c6").value=='' )
+            {
+                document.getElementById("c6").value="X";
+                document.getElementById("turn").value="Player 2 turn !";
+                a++;
+                if((document.getElementById("c3").value=="X" && document.getElementById("c9").value=="X") || (document.getElementById("c5").value=="X" && document.getElementById("c4").value=="X"))
+                {
+                    
+                    alert("Congratulations Player 1 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a%2==1 && document.getElementById("c6").value=='' )
+            {
+                document.getElementById("c6").value="O";
+                document.getElementById("turn").value="Player 1 turn !";
+                a++;
+                if((document.getElementById("c3").value=="O" && document.getElementById("c9").value=="O") || (document.getElementById("c5").value=="O" && document.getElementById("c4").value=="O"))
+                {
+                    
+                    alert("Congratulations Player 2 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a==9 && flag==0)
+            {
+                alert("Match Draw !\nPlay New Game")
+            }
+            
+        }
+        function display7()
+        {
+            if(a%2==0 && document.getElementById("c7").value=='' )
+            {
+                document.getElementById("c7").value="X";
+                document.getElementById("turn").value="Player 2 turn !";
+                a++;
+                if((document.getElementById("c4").value=="X" && document.getElementById("c1").value=="X") || (document.getElementById("c8").value=="X" && document.getElementById("c9").value=="X") || (document.getElementById("c5").value=="X" && document.getElementById("c3").value=="X"))
+                {
+                    
+                    alert("Congratulations Player 1 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a%2==1 && document.getElementById("c7").value=='' )
+            {
+                document.getElementById("c7").value="O";
+                document.getElementById("turn").value="Player 1 turn !";
+                a++;
+                if((document.getElementById("c4").value=="O" && document.getElementById("c1").value=="O") || (document.getElementById("c8").value=="O" && document.getElementById("c9").value=="O") || (document.getElementById("c5").value=="O" && document.getElementById("c3").value=="O"))
+                {
+                    
+                    alert("Congratulations Player 2 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a==9 && flag==0)
+            {
+                alert("Match Draw !\nPlay New Game")
+            }
+            
+        }
+        function display8()
+        {
+            if(a%2==0 && document.getElementById("c8").value=='' )
+            {
+                document.getElementById("c8").value="X";
+                document.getElementById("turn").value="Player 2 turn !";
+                a++;
+                if((document.getElementById("c7").value=="X" && document.getElementById("c9").value=="X") || (document.getElementById("c5").value=="X" && document.getElementById("c2").value=="X"))
+                {
+                    
+                    alert("Congratulations Player 1 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a%2==1 && document.getElementById("c8").value=='' )
+            {
+                document.getElementById("c8").value="O";
+                document.getElementById("turn").value="Player 1 turn !";
+                a++;
+                if((document.getElementById("c7").value=="O" && document.getElementById("c9").value=="O") || (document.getElementById("c5").value=="O" && document.getElementById("c2").value=="O"))
+                {
+                    
+                    alert("Congratulations Player 2 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a==9 && flag==0)
+            {
+                alert("Match Draw !\nPlay New Game")
+            }
+            
+        }
+        function display9()
+        {
+            if(a%2==0 && document.getElementById("c9").value=='' )
+            {
+                document.getElementById("c9").value="X";
+                document.getElementById("turn").value="Player 2 turn !";
+                a++;
+                if((document.getElementById("c6").value=="X" && document.getElementById("c3").value=="X") || (document.getElementById("c8").value=="X" && document.getElementById("c7").value=="X") || (document.getElementById("c5").value=="X" && document.getElementById("c1").value=="X"))
+                {
+                    
+                    alert("Congratulations Player 1 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a%2==1 && document.getElementById("c9").value=='' )
+            {
+                document.getElementById("c9").value="O";
+                document.getElementById("turn").value="Player 1 turn !";
+                a++;
+                if((document.getElementById("c6").value=="O" && document.getElementById("c3").value=="O") || (document.getElementById("c8").value=="O" && document.getElementById("c7").value=="O") || (document.getElementById("c5").value=="O" && document.getElementById("c1").value=="O"))
+                {
+                    
+                    alert("Congratulations Player 2 wins !\nPlay New Game");
+                    document.getElementById("c1").disabled=true;
+                    document.getElementById("c2").disabled=true;
+                    document.getElementById("c3").disabled=true;
+                    document.getElementById("c4").disabled=true;
+                    document.getElementById("c5").disabled=true;
+                    document.getElementById("c6").disabled=true;
+                    document.getElementById("c7").disabled=true;
+                    document.getElementById("c8").disabled=true;
+                    document.getElementById("c9").disabled=true;
+                    flag=1;
+
+                    
+                }
+            }
+            if(a==9 && flag==0)
+            {
+                alert("Match Draw !\nPlay New Game")
+            }
+            
+        }
+        function display10()
+        {
+            document.getElementById("c1").disabled=false;
+            document.getElementById("c2").disabled=false;
+            document.getElementById("c3").disabled=false;
+            document.getElementById("c4").disabled=false;
+            document.getElementById("c5").disabled=false;
+            document.getElementById("c6").disabled=false;
+            document.getElementById("c7").disabled=false;
+            document.getElementById("c8").disabled=false;
+            document.getElementById("c9").disabled=false;
+            document.getElementById("c1").value='';
+            document.getElementById("turn").value="Player 1 turn !";
+            document.getElementById("c2").value='';
+            document.getElementById("c3").value='';
+            document.getElementById("c4").value='';
+            document.getElementById("c5").value='';
+            document.getElementById("c6").value='';
+            document.getElementById("c7").value='';
+            document.getElementById("c8").value='';
+            document.getElementById("c9").value='';
+            a=0;
+            flag=0;
+
+        }
+    </script>
+</body>
+</html>
